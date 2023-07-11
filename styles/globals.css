@@ -1,3 +1,12 @@
+:root {
+  --bg-color-primary: #6a7efc;
+  --bg-color-secondary: #edf2f6;
+  --bg-color-tertiary: #ffffff7a;
+  --text-color-primary: #494953;
+  --text-color-secondary: #fff;
+  --text-color-tertiary: #ff5656;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -6,6 +15,8 @@
 
 html,
 body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   max-width: 100vw;
   overflow-x: hidden;
 }

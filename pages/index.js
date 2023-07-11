@@ -1,3 +1,7 @@
 export default function Home() {
-  return <>todo project</>;
+  return (
+    <>
+      <p>todo project</p>
+    </>
+  );
 }
