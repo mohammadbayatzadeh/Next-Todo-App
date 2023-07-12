@@ -1,12 +1,6 @@
 import Link from "next/link";
-import {
-  VscListSelection,
-  VscPerson,
-  VscIndent,
-  VscReply,
-} from "react-icons/vsc";
-
 import styles from "./Layout.module.css";
+import { VscListSelection, VscPerson, VscIndent } from "react-icons/vsc";
 
 function Layout({ children }) {
   return (
