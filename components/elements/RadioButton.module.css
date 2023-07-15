@@ -1,0 +1,17 @@
+.radioButton {
+  display: flex;
+  padding: 7px;
+  align-items: center;
+  border-radius: 10px;
+  width: 150px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.checked {
+  color: var(--text-color-secondary);
+  background-color: var(--bg-color-primary);
+}
+.radioButton p {
+  margin-left: 5px;
+}

@@ -1,6 +1,9 @@
+//models
 import User from "@/models/User";
-import { hashPassword } from "@/utils/auth";
+
+//functions
 import conncetDB from "@/utils/connectDB";
+import { hashPassword } from "@/utils/auth";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") return;

@@ -1,11 +1,18 @@
+//layout
 import Layout from "@/components/layout/Layout";
-import "@/styles/globals.css";
 
+//styles
+import "@/styles/globals.css";
+import { SessionProvider } from "next-auth/react";
+import { ToastContainer } from "react-toastify";
 
 export default function App({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <SessionProvider session={pageProps.session}>
+      <Layout>
+        <ToastContainer />
+        <Component {...pageProps} />
+      </Layout>
+    </SessionProvider>
   );
 }

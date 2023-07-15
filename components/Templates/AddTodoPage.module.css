@@ -1,0 +1,44 @@
+.container {
+  color: var(--text-color-primary);
+}
+
+.container h3 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.form {
+  margin: 10px;
+}
+.form input {
+  padding: 5px;
+  width: 20%;
+  min-width: 200px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid var(--bg-color-primary);
+  border-left: 2px solid var(--bg-color-primary);
+  border-bottom-left-radius: 10px;
+  outline: none;
+  margin-top: 5px;
+}
+.form input[id="description"] {
+  width: 50%;
+  min-width: 3 00px;
+}
+.container input {
+  display: flex;
+}
+
+.form button {
+  background: var(--bg-color-primary);
+  color: var(--text-color-secondary);
+  border: none;
+  margin: 15px 0 20px;
+  padding: 9px;
+  cursor: pointer;
+  width: 150px;
+  font-weight: 600;
+  transition: 0.5s all ease;
+  border-radius: 10px;
+}

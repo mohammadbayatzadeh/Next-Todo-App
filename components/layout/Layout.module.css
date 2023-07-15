@@ -17,6 +17,7 @@
 }
 .container {
   display: flex;
+
   width: 100%;
   height: calc(100vh - 110px);
 }
@@ -103,7 +104,16 @@
 }
 .body {
   min-width: 100%;
-  margin: 100px 0 0 170px;
+  margin: 110px 0 0 180px;
+  padding: 10px;
+  color: black;
+  height: 100vh;
+  transition: 0.5s all ease;
+  overflow-y: scroll;
+}
+.subBody {
+  min-width: 100%;
+  margin: 110px auto;
   padding: 10px;
   color: black;
   height: 100vh;
