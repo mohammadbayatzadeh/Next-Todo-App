@@ -1,5 +1,6 @@
 import User from "@/models/User";
 import conncetDB from "@/utils/connectDB";
+import { sortTodo } from "@/utils/sortTodo";
 import { getSession } from "next-auth/react";
 
 export default async function handler(req, res) {
@@ -38,5 +39,25 @@ export default async function handler(req, res) {
     await user.save();
 
     return res.status(200).json({ status: "success", message: "todo saved" });
+  } else if (req.method === "GET") {
+    const todos = user.todos;
+    const sortedTodos = sortTodo(todos);
+
+    return res.status(200).json({ status: "success", todos: sortedTodos });
+  } else if (req.method === "PATCH") {
+    const { id, status } = req.body;
+
+    if (!id || !status) {
+      return res
+        .status(422)
+        .json({ status: "failed", message: "invalid data" });
+    }
+    const result = await User.updateOne(
+      { "todos._id": id },
+      { $set: { "todos.$.status": status } }
+    );
+    return res
+      .status(200)
+      .json({ status: "success", message: "todos status updated" });
   }
 }

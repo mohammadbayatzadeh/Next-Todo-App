@@ -103,16 +103,15 @@
   margin-left: 5px;
 }
 .body {
-  min-width: 100%;
+  width: 100vw;
   margin: 110px 0 0 180px;
   padding: 10px;
   color: black;
   height: 100vh;
   transition: 0.5s all ease;
-  overflow-y: scroll;
 }
 .subBody {
-  min-width: 100%;
+  width: 100%;
   margin: 110px auto;
   padding: 10px;
   color: black;
@@ -121,6 +120,7 @@
   overflow-y: scroll;
 }
 .container input[type="checkbox"]:checked ~ .body {
+  min-width: 98vw;
   transform: translateX(-150px);
 }
 
@@ -162,6 +162,11 @@
     opacity: 0;
   }
   .body {
+    min-width: 90vw;
+    transform: translateX(-150px);
+  }
+  .container input[type="checkbox"]:checked ~ .body {
+    min-width: 90vw;
     transform: translateX(-150px);
   }
 }

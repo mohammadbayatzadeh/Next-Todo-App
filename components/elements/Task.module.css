@@ -1,0 +1,60 @@
+.container {
+  width: 100%;
+  color: var(--text-color-primary);
+  padding: 7px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.5);
+}
+.title {
+  display: flex;
+  align-items: baseline;
+  font-weight: 600;
+}
+.description {
+  font-size: 0.8em;
+}
+.status {
+  font-size: 0.7em;
+  width: fit-content;
+  margin: 5px;
+  border-radius: 7px;
+  padding: 2px;
+  background-color: var(--bg-color-primary);
+  color: var(--text-color-secondary);
+}
+.line {
+  display: flex;
+  width: 50%;
+  height: 2px;
+  background-color: var(--bg-color-primary);
+}
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7px;
+}
+.backButton {
+  display: flex;
+  align-items: flex-end;
+  background: var(--text-color-tertiary);
+  color: var(--text-color-secondary);
+  border: none;
+  padding: 5px 7px;
+  cursor: pointer;
+  transition: 0.5s all ease;
+  border-radius: 7px;
+}
+.nextButton {
+  display: flex;
+  align-items: flex-end;
+  background: var(--bg-color-primary);
+  color: var(--text-color-secondary);
+  border: none;
+  padding: 5px 7px;
+  cursor: pointer;
+  transition: 0.5s all ease;
+  border-radius: 7px;
+}

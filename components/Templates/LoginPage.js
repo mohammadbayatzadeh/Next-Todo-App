@@ -52,8 +52,8 @@ function LoginPage() {
 
         <button onClick={clickHandler}>Login</button>
         <p>
-          have Account ?{" "}
-          <span onClick={() => router.replace("/login")}>Login</span>
+          Dont have Account ?{" "}
+          <span onClick={() => router.replace("/register")}>register</span>
         </p>
       </div>
     </div>

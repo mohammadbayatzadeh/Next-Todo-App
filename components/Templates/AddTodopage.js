@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import {
   VscAdd,
   VscCheckAll,
@@ -20,8 +21,9 @@ function AddTodopage() {
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("new");
 
+  const router = useRouter();
+
   const submitHandler = async () => {
-    // console.log({ title, description, status });
     axios
       .post("/api/todos", {
         title,
@@ -33,6 +35,7 @@ function AddTodopage() {
         setTitle("");
         setDescription("");
         setStatus("new");
+        router.replace("/");
       })
       .catch((err) => {
         Toast("failed ", "error");
