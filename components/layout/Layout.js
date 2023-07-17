@@ -3,14 +3,27 @@ import Link from "next/link";
 
 //styles
 import styles from "./Layout.module.css";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 
 function Layout({ children }) {
+  const router = useRouter();
   const { status } = useSession();
   return (
     <div className={styles.main_container}>
       <header className={styles.header}>
         <p>Todo App Project</p>
+        <div style={{ marginLeft: "auto" }}></div>
+        {status === "authenticated" ? (
+          <button onClick={() => signOut()}>Logout</button>
+        ) : (
+          <>
+            <button onClick={() => router.replace("/register")}>
+              register
+            </button>
+            <button onClick={() => router.replace("/login")}>login</button>
+          </>
+        )}
       </header>
       <div className={styles.container}>
         {status === "authenticated" && (

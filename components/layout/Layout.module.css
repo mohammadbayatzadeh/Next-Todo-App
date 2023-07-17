@@ -7,9 +7,23 @@
 }
 .header {
   position: fixed;
+  display: flex;
+  align-items: baseline;
   width: 100%;
   background-color: var(--bg-color-primary);
   padding: 15px 15px 50px;
+}
+.header button {
+  background: var(--text-color-secondary);
+  color: var(--bg-color-primary);
+  border: none;
+  margin: 15px 5px 20px;
+  padding: 9px;
+  cursor: pointer;
+  width: 150px;
+  font-weight: 600;
+  transition: 0.5s all ease;
+  border-radius: 10px;
 }
 .header p {
   font-size: 1.8em;
@@ -19,7 +33,7 @@
   display: flex;
 
   width: 100%;
-  height: calc(100vh - 110px);
+  height: calc(100vh - 10px);
 }
 .aside {
   position: fixed;
@@ -103,21 +117,23 @@
   margin-left: 5px;
 }
 .body {
-  width: 100vw;
-  margin: 110px 0 0 180px;
+  display: flex;
+  width: 100%;
+  margin: 140px 0 0 180px;
   padding: 10px;
+  padding-bottom: 100px !important;
   color: black;
-  height: 100vh;
+  min-height: fit-content;
   transition: 0.5s all ease;
+  overflow-y: auto;
 }
 .subBody {
   width: 100%;
-  margin: 110px auto;
+  margin: 140px auto;
   padding: 10px;
   color: black;
   height: 100vh;
   transition: 0.5s all ease;
-  overflow-y: scroll;
 }
 .container input[type="checkbox"]:checked ~ .body {
   min-width: 98vw;
@@ -162,11 +178,10 @@
     opacity: 0;
   }
   .body {
-    min-width: 90vw;
+    min-width: 100vw;
     transform: translateX(-150px);
   }
   .container input[type="checkbox"]:checked ~ .body {
-    min-width: 90vw;
     transform: translateX(-150px);
   }
 }

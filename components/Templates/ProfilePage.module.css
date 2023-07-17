@@ -1,0 +1,41 @@
+.container {
+  color: var(--text-color-primary);
+}
+
+.container h3 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  margin-left: 5px;
+}
+.form {
+  margin: 20px;
+}
+.form input {
+  padding: 5px;
+  min-width: 250px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid var(--bg-color-primary);
+  border-left: 2px solid var(--bg-color-primary);
+  border-bottom-left-radius: 10px;
+  outline: none;
+  margin-top: 5px;
+}
+
+.container input {
+  display: flex;
+}
+
+.form button {
+  background: var(--bg-color-primary);
+  color: var(--text-color-secondary);
+  border: none;
+  margin: 15px 0 20px;
+  padding: 9px;
+  cursor: pointer;
+  width: 150px;
+  font-weight: 600;
+  transition: 0.5s all ease;
+  border-radius: 10px;
+}

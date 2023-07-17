@@ -1,4 +1,6 @@
 .container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   color: var(--text-color-primary);
   padding: 7px;
@@ -26,9 +28,11 @@
 }
 .line {
   display: flex;
-  width: 50%;
+  align-self: center;
+  width: 80%;
   height: 2px;
   background-color: var(--bg-color-primary);
+  margin-top: 5px;
 }
 .buttons {
   width: 100%;
