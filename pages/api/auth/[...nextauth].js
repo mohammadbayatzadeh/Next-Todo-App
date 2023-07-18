@@ -10,32 +10,24 @@ import User from "@/models/User";
 
 const authOptions = {
   session: { strategy: "jwt" },
+  secret: process.env.NEXT_PUBLIC_SECRET,
   providers: [
     CredentialsProvider({
       async authorize(credentials, req) {
-        const { email, password } = credentials;
-
         try {
           await conncetDB();
         } catch (err) {
           throw new Error("error in connecting to db");
         }
 
-        if (!email || !password) {
-          throw new Error("invalid data!");
-        }
+        const { email, password } = credentials;
+        if (!email || !password) throw new Error("invalid data!");
 
         const existingUser = await User.findOne({ email });
-
-        if (!existingUser) {
-          throw new Error("user not exist");
-        }
+        if (!existingUser) throw new Error("user not exist");
 
         const isValid = await comparePasswords(password, existingUser.password);
-
-        if (!isValid) {
-          throw new Error("email or password is inccorect");
-        }
+        if (!isValid) throw new Error("email or password is inccorect");
 
         return { email };
       },

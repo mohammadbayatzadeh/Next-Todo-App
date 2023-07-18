@@ -22,9 +22,15 @@ function LoginPage() {
       email,
       password,
       redirect: false,
-    })
-      .then((res) => (router.replace("/"), Toast("logged in", "success")))
-      .catch((err) => Toast("failed", "error"));
+    }).then((res) => {
+      if (res.ok) {
+        router.replace("/todos");
+        Toast("logged in", "success");
+        return;
+      } else {
+        Toast(`${res.error}`, "error");
+      }
+    });
   };
 
   return (

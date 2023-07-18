@@ -18,8 +18,8 @@ function RegisterPage() {
   const clickHandler = async () => {
     axios
       .post("/api/auth/register", { email, password })
-      .then((res) => (router.replace("/"), Toast("logged in", "success")))
-      .catch((err) => Toast("failed", "error"));
+      .then((res) => (router.replace('/login'), Toast("logged in", "success")))
+      .catch((err) => Toast(`${err.response.data.message}`, "error"));
   };
 
   return (

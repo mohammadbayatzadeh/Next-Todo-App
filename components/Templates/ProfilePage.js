@@ -34,7 +34,6 @@ function ProfilePage() {
   }, []);
 
   const submitHandler = async () => {
-    console.log(firstName, lastName, password);
     axios
       .post("/api/profile", {
         firstName,
@@ -49,7 +48,7 @@ function ProfilePage() {
         router.replace("/");
       })
       .catch((err) => {
-        Toast("failed ", "error");
+        Toast(`${err.response.data.message}`, "error");
 
         console.log(err);
       });

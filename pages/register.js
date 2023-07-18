@@ -1,8 +1,16 @@
 import RegisterPage from "@/components/Templates/RegisterPage";
 import { getSession } from "next-auth/react";
+import Head from "next/head";
 
 function Register() {
-  return <RegisterPage />;
+  return (
+    <>
+      <Head>
+        <title>Register</title>
+      </Head>
+      <RegisterPage />
+    </>
+  );
 }
 
 export default Register;
@@ -13,7 +21,7 @@ export async function getServerSideProps({ req }) {
   if (session) {
     return {
       redirect: {
-        destination: "/",
+        destination: "/todos",
       },
     };
   }

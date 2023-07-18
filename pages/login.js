@@ -1,8 +1,16 @@
 import LoginPage from "@/components/Templates/LoginPage";
 import { getSession } from "next-auth/react";
+import Head from "next/head";
 
 function Login() {
-  return <LoginPage />;
+  return (
+    <>
+      <Head>
+        <title>Login</title>
+      </Head>
+      <LoginPage />
+    </>
+  );
 }
 
 export default Login;
@@ -13,7 +21,7 @@ export async function getServerSideProps({ req }) {
   if (session) {
     return {
       redirect: {
-        destination: "/",
+        destination: "/todos",
       },
     };
   }

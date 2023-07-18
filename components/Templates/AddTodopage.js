@@ -38,7 +38,7 @@ function AddTodopage() {
         router.replace("/");
       })
       .catch((err) => {
-        Toast("failed ", "error");
+        Toast(`${err.response.data.message}`, "error");
 
         console.log(err.response.data);
       });

@@ -1,7 +1,32 @@
 import AddTodopage from "@/components/Templates/AddTodopage";
+import { getSession } from "next-auth/react";
+import Head from "next/head";
 
 function AddTodo() {
-  return <AddTodopage />;
+  return (
+    <>
+      <Head>
+        <title>Add Todo</title>
+      </Head>
+      <AddTodopage />
+    </>
+  );
 }
 
 export default AddTodo;
+
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/",
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
+}

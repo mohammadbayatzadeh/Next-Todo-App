@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
-import styles from "./HomePage.module.css";
 import axios from "axios";
+
+//functions
 import SortPart from "../elements/sortPart";
+
+//styles
+import styles from "./HomePage.module.css";
 
 function HomePage() {
   const [todos, setTodos] = useState({});
@@ -38,4 +42,3 @@ function HomePage() {
 }
 
 export default HomePage;
-

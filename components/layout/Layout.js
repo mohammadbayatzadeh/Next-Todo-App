@@ -1,16 +1,20 @@
-import { VscListSelection, VscPerson, VscIndent } from "react-icons/vsc";
 import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 
 //styles
 import styles from "./Layout.module.css";
-import { useSession, signOut } from "next-auth/react";
-import { useRouter } from "next/router";
+import { VscListSelection, VscPerson, VscIndent } from "react-icons/vsc";
+import Head from "next/head";
 
 function Layout({ children }) {
   const router = useRouter();
   const { status } = useSession();
   return (
     <div className={styles.main_container}>
+      <Head>
+        <link rel="icon" href="/Logo.png" />
+      </Head>
       <header className={styles.header}>
         <p>Todo App Project</p>
         <div style={{ marginLeft: "auto" }}></div>
