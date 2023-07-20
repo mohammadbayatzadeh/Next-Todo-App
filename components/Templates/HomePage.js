@@ -8,16 +8,14 @@ import SortPart from "../elements/sortPart";
 import styles from "./HomePage.module.css";
 
 function HomePage() {
-  const [todos, setTodos] = useState({});
+  const [todos, setTodos] = useState();
   const fetchData = async () => {
     axios
       .get("api/todos")
       .then((res) => {
         setTodos(res.data.todos);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
   useEffect(() => {
     fetchData();
@@ -25,18 +23,10 @@ function HomePage() {
 
   return (
     <div className={styles.container}>
-      {todos && (
-        <>
-          <SortPart title="New" data={todos.new} fetchData={fetchData} />
-          <SortPart
-            title="In Progress"
-            data={todos["in progress"]}
-            fetchData={fetchData}
-          />
-          <SortPart title="Review" data={todos.review} fetchData={fetchData} />
-          <SortPart title="Done" data={todos.done} fetchData={fetchData} />
-        </>
-      )}
+      <SortPart title="new" data={todos} fetchData={fetchData} />
+      <SortPart title="in progress" data={todos} fetchData={fetchData} />
+      <SortPart title="review" data={todos} fetchData={fetchData} />
+      <SortPart title="done" data={todos} fetchData={fetchData} />
     </div>
   );
 }

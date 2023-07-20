@@ -1,4 +1,7 @@
+//elements
 import Task from "./Task";
+
+//styles
 import styles from "./sortPart.module.css";
 
 function SortPart({ title, data, fetchData }) {
@@ -6,12 +9,16 @@ function SortPart({ title, data, fetchData }) {
     <div className={styles.sortContainer}>
       <div className={styles.sortTitle}>{title}</div>
       <div className={styles.tasks}>
-        {data?.length ? (
-          data.map((todo) => (
-            <Task key={todo._id} {...todo} fetch={fetchData} />
-          ))
+        {data ? (
+          data[title]?.length ? (
+            data[title].map((todo) => (
+              <Task key={todo._id} {...todo} fetch={fetchData} />
+            ))
+          ) : (
+            <p>There is no {title} todo</p>
+          )
         ) : (
-          <p>There is no {title} todo</p>
+          <p>loading ...</p>
         )}
       </div>
     </div>
