@@ -1,6 +1,8 @@
-import RegisterPage from "@/components/Templates/RegisterPage";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
+
+//temps
+import RegisterPage from "@/components/Templates/RegisterPage";
 
 function Register() {
   return (

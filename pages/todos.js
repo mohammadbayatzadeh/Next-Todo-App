@@ -1,7 +1,8 @@
-import React from "react";
-import HomePage from "@/components/Templates/HomePage";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
+
+//temps
+import HomePage from "@/components/Templates/HomePage";
 
 function Home() {
   return (

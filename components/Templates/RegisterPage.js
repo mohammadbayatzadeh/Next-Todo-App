@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
-import { VscMail, VscLock } from "react-icons/vsc";
 import { useRouter } from "next/router";
+
+//icons
+import { VscMail, VscLock } from "react-icons/vsc";
 
 //styles
 import styles from "./RegisterPage.module.css";
@@ -18,7 +20,7 @@ function RegisterPage() {
   const clickHandler = async () => {
     axios
       .post("/api/auth/register", { email, password })
-      .then((res) => (router.replace('/login'), Toast("logged in", "success")))
+      .then((res) => (router.replace("/login"), Toast("logged in", "success")))
       .catch((err) => Toast(`${err.response.data.message}`, "error"));
   };
 

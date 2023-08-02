@@ -7,6 +7,8 @@ import Toast from "../elements/Toast";
 
 //styles
 import styles from "./ProfilePage.module.css";
+
+//icons
 import { VscAccount } from "react-icons/vsc";
 
 function ProfilePage() {

@@ -1,6 +1,8 @@
-import AddTodopage from "@/components/Templates/AddTodopage";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
+
+//temps
+import AddTodopage from "@/components/Templates/AddTodopage";
 
 function AddTodo() {
   return (

@@ -1,8 +1,14 @@
 import axios from "axios";
+import { useState } from "react";
+
+//styles
 import styles from "./Task.module.css";
+
+//icons
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
+
+//comps
 import Toast from "./Toast";
-import { useEffect, useState } from "react";
 
 function Task({ title, status, description, _id, fetch }) {
   const [details, setDetails] = useState(false);
@@ -46,7 +52,6 @@ function Task({ title, status, description, _id, fetch }) {
           details ? `${styles.dropDown} ${styles.active}` : styles.dropDown
         }
       >
-        {/* <div className={styles.description}> */}
         <div
           className={
             !details

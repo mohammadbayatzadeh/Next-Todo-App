@@ -1,4 +1,4 @@
-//elements
+//comps
 import Task from "./Task";
 
 //styles

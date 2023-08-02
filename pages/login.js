@@ -1,6 +1,8 @@
-import LoginPage from "@/components/Templates/LoginPage";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
+
+//temps
+import LoginPage from "@/components/Templates/LoginPage";
 
 function Login() {
   return (

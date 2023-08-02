@@ -1,11 +1,13 @@
+import Head from "next/head";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 
 //styles
 import styles from "./Layout.module.css";
+
+//icons
 import { VscListSelection, VscPerson, VscIndent } from "react-icons/vsc";
-import Head from "next/head";
 
 function Layout({ children }) {
   const router = useRouter();

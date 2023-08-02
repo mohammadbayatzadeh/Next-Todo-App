@@ -1,3 +1,4 @@
+//styles
 import styles from "./RadioButton.module.css";
 
 function RadioButton({ title, status, setStatus, children }) {
