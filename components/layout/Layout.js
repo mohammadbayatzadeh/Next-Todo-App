@@ -8,17 +8,39 @@ import styles from "./Layout.module.css";
 
 //icons
 import { VscListSelection, VscPerson, VscIndent } from "react-icons/vsc";
+import { useEffect, useState } from "react";
+import Sun from "../icons/Sun";
+import Moon from "../icons/Moon";
 
 function Layout({ children }) {
   const router = useRouter();
+  const [theme, setTheme] = useState("light");
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme") || "light";
+    setTheme(storedTheme);
+  }, []);
+
+  const themeHandler = () => {
+    if (theme === "light") {
+      localStorage.setItem("theme", "dark");
+      setTheme("dark");
+    } else {
+      localStorage.setItem("theme", "light");
+      setTheme("light");
+    }
+  };
+
   const { status } = useSession();
   return (
-    <div className={styles.main_container}>
+    <div className={styles.main_container} id={[theme]}>
       <Head>
         <link rel="icon" href="/Logo.png" />
       </Head>
       <header className={styles.header}>
         <p>Todo App Project</p>
+        <span onClick={themeHandler}>
+          {theme === "light" ? <Sun /> : <Moon />}
+        </span>
         <div style={{ marginLeft: "auto" }}></div>
         {status === "authenticated" ? (
           <button onClick={() => signOut()}>Logout</button>
