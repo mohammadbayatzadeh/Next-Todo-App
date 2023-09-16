@@ -41,4 +41,10 @@ export default async function handler(req, res) {
     await user.save();
     res.status(200).json({ message: "todo updated" });
   }
+  if (req.method === "DELETE") {
+    const newTodos = user.todos.filter((todo) => todo._id != id);
+    user.todos = newTodos;
+    await user.save();
+    res.status(200).json({ message: "todo deleted" });
+  }
 }

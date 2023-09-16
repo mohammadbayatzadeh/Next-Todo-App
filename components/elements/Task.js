@@ -29,14 +29,20 @@ function Task({ title, status, description, _id, fetch }) {
       })
       .catch((err) => {
         Toast("failed", "error");
-
-        console.log(err.response.data);
       });
   };
   const deleteHandler = async () => {
-    console.log(_id);
+    axios
+      .delete("/api/" + _id)
+      .then((res) => {
+        Toast(`${title} todo deleted`, "success");
+        fetch();
+      })
+      .catch((err) => {
+        Toast("failed", "error");
+      });
   };
-  
+
   const editHandler = async () => {
     router.push("/edit-todo/" + _id);
   };
@@ -44,7 +50,7 @@ function Task({ title, status, description, _id, fetch }) {
   return (
     <div className={styles.container}>
       <div className={styles.title}>
-        {title}
+        <div className={styles.titleText}>{title}</div>
         <div className={styles.status}>{status}</div>
         <span
           className={details ? `${styles.menu} ${styles.active}` : styles.menu}
@@ -69,7 +75,8 @@ function Task({ title, status, description, _id, fetch }) {
               : `${styles.description} ${styles.active}`
           }
         >
-          {description}
+          <p>{title}</p>
+          <p>{description}</p>
         </div>
         <span className={styles.line}></span>
         <div className={styles.buttons}>

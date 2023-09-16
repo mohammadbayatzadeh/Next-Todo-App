@@ -30,9 +30,7 @@ function ProfilePage() {
         setFirstName(firstName);
         setLastName(lastName);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
 
   const submitHandler = async () => {
@@ -51,8 +49,6 @@ function ProfilePage() {
       })
       .catch((err) => {
         Toast(`${err.response.data.message}`, "error");
-
-        console.log(err);
       });
   };
   return (

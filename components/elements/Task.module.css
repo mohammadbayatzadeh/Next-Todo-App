@@ -29,6 +29,12 @@
   transform: translateY(5px);
   cursor: pointer;
 }
+.titleText {
+  max-width: 15ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .menu {
   color: var(--bg-color-tertiary);
   margin-right: auto;
@@ -48,9 +54,14 @@
   transition: all 0.5s ease;
   color: var(--bg-color-tertiary);
 }
+.description p:nth-child(1){
+  font-weight: 800;
+}
 .description.active {
   opacity: 1;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   transition: all 0.5s ease;
 }
 
