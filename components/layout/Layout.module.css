@@ -11,13 +11,13 @@
   align-items: baseline;
   width: 100%;
   background-color: var(--bg-color-primary);
-  padding: 15px 15px 50px;
+  padding: 15px;
 }
 .header button {
   background: var(--text-color-secondary);
   color: var(--bg-color-primary);
   border: none;
-  margin: 15px 5px 20px;
+  margin: 15px 5px ;
   padding: 9px;
   cursor: pointer;
   width: 150px;
@@ -25,7 +25,7 @@
   transition: 0.5s all ease;
   border-radius: 10px;
 }
-.header p {
+.header a {
   font-size: 1.8em;
   color: var(--text-color-secondary);
 }
@@ -118,7 +118,7 @@
 .body {
   display: flex;
   width: 100%;
-  margin: 140px 0 0 180px;
+  margin: 100px 0 0 180px;
   padding: 10px;
   padding-bottom: 100px !important;
   color: black;
@@ -128,7 +128,7 @@
 }
 .subBody {
   width: 100%;
-  margin: 140px auto;
+  margin: 100px auto;
   padding: 10px;
   color: black;
   height: 100vh;

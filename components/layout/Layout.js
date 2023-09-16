@@ -37,7 +37,7 @@ function Layout({ children }) {
         <link rel="icon" href="/Logo.png" />
       </Head>
       <header className={styles.header}>
-        <p>Todo App Project</p>
+        <Link href="/">Todo App Project</Link>
         <span onClick={themeHandler}>
           {theme === "light" ? <Sun /> : <Moon />}
         </span>

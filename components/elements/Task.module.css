@@ -1,7 +1,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 100%;
   overflow: hidden;
   color: var(--text-color-primary);
   padding: 0 7px 7px;
@@ -15,59 +14,39 @@
 .title {
   display: flex;
   align-items: baseline;
+  width: 100%;
   font-weight: 600;
   z-index: 1;
-  background-color: var(--text-color-secondary);
-}
-.title input {
-  display: none;
-}
-.menu {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-  overflow: hidden;
-  transition: all 0.5s ease;
-  cursor: pointer;
-}
-.menu span {
-  position: relative;
-  display: flex;
-  width: 20px;
-  height: 2px;
-  background-color: var(--text-color-primary);
-  transition: all 0.5s ease;
-}
-.menu span:first-child {
-  top: 13px;
-  left: -6.5px;
-  transform: rotate(45deg);
+  color: var(--bg-color-primary);
 }
 
-.menu span:last-child {
-  top: -5px;
-  left: 6px;
-  transform: rotate(-45deg);
+.menu {
+  display: flex;
+  align-items: center;
+  transition: all 0.5s ease;
 }
-.menu.active span:first-child {
-  top: 5px;
-  left: 6.5px;
-  transform: rotate(-135deg);
+.title svg {
+  transform: translateY(5px);
+  cursor: pointer;
 }
-.menu.active span:last-child {
-  top: -13px;
-  left: -6.5px;
-  transform: rotate(135deg);
+.menu {
+  color: var(--bg-color-tertiary);
+  margin-right: auto;
+  transition: all 0.5s ease;
 }
+.menu.active {
+  transform: rotate(180deg) translateY(-8px);
+}
+.title svg:nth-child(4) {
+  color: var(--text-color-tertiary);
+}
+
 .description {
   opacity: 0;
   display: none;
   font-size: 0.8em;
   transition: all 0.5s ease;
+  color: var(--bg-color-tertiary);
 }
 .description.active {
   opacity: 1;
@@ -77,12 +56,11 @@
 
 .status {
   font-size: 0.7em;
-  width: fit-content;
   margin: 5px;
   border-radius: 7px;
-  padding: 2px;
+  padding: 2px 5px;
   background-color: var(--bg-color-primary);
-  color: var(--text-color-primary);
+  color: var(--text-color-secondary);
 }
 .dropDown {
   transform: translateY(calc(-100% + 40px));
@@ -112,7 +90,7 @@
   display: flex;
   align-items: flex-end;
   background: var(--text-color-tertiary);
-  color: var(--text-color-primary);
+  color: var(--text-color-secondary);
   border: none;
   padding: 5px 7px;
   cursor: pointer;
@@ -122,7 +100,7 @@
   display: flex;
   align-items: flex-end;
   background: var(--bg-color-primary);
-  color: var(--text-color-primary);
+  color: var(--text-color-secondary);
   border: none;
   padding: 5px 7px;
   cursor: pointer;

@@ -6,16 +6,19 @@ import styles from "./Task.module.css";
 
 //icons
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
+import { AiFillEdit, AiOutlineDelete, AiFillCaretDown } from "react-icons/ai";
 
 //comps
 import Toast from "./Toast";
+import { useRouter } from "next/router";
 
 function Task({ title, status, description, _id, fetch }) {
   const [details, setDetails] = useState(false);
-
   const statuses = ["new", "in progress", "review", "done"];
 
   const index = statuses.findIndex((s) => s === status);
+
+  const router = useRouter();
 
   const handler = async (id, status) => {
     axios
@@ -30,21 +33,28 @@ function Task({ title, status, description, _id, fetch }) {
         console.log(err.response.data);
       });
   };
+  const deleteHandler = async () => {
+    console.log(_id);
+  };
+  
+  const editHandler = async () => {
+    router.push("/edit-todo/" + _id);
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.title}>
         {title}
         <div className={styles.status}>{status}</div>
-        <label
-          htmlFor="menu"
+        <span
           className={details ? `${styles.menu} ${styles.active}` : styles.menu}
           onClick={() => setDetails((prevState) => !prevState)}
         >
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
+          <AiFillCaretDown />
+        </span>
+        <AiFillEdit onClick={editHandler} />
+
+        <AiOutlineDelete onClick={deleteHandler} />
       </div>
 
       <div

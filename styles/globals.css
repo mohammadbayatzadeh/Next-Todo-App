@@ -1,24 +1,27 @@
 :root #light {
   --bg-color-primary: #6a7efc;
   --bg-color-secondary: #edf2f6;
-  --bg-color-tertiary: #ffffff7a;
+  --bg-color-tertiary: #4747477a;
   --text-color-primary: #494953;
   --text-color-secondary: #fff;
   --text-color-tertiary: #ff5656;
+
 }
 :root #dark {
   --bg-color-primary: #1d213c;
   --bg-color-secondary: #7b8893;
-  --bg-color-tertiary: #ffffff7a;
+  --bg-color-tertiary: #343434db;
   --text-color-primary: #ffffff;
-  --text-color-secondary: #a1a1a1;
+  --text-color-secondary: #ffffff;
   --text-color-tertiary: #ff5656;
+
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html,

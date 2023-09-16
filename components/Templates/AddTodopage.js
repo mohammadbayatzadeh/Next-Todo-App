@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 //icons
@@ -18,32 +18,61 @@ import Toast from "../elements/Toast";
 import styles from "./AddTodoPage.module.css";
 import axios from "axios";
 
-function AddTodopage() {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("new");
+function AddTodopage({ todo }) {
+  const [form, setForm] = useState({
+    title: "",
+    description: "",
+    status: "new",
+  });
 
   const router = useRouter();
+
+  useEffect(() => {
+    todo && setForm({ ...todo });
+  }, []);
 
   const submitHandler = async () => {
     axios
       .post("/api/todos", {
-        title,
-        description,
-        status,
+        ...form,
       })
-      .then((res) => {
-        Toast(`${title} added`, "success");
-        setTitle("");
-        setDescription("");
-        setStatus("new");
+      .then(() => {
+        Toast(`${form.title} added`, "success");
+        setForm({
+          title: "",
+          description: "",
+          status: "new",
+        });
         router.replace("/");
       })
       .catch((err) => {
         Toast(`${err.response.data.message}`, "error");
-
-        console.log(err.response.data);
       });
+  };
+
+  const updateHandler = async () => {
+    axios
+      .patch("/api/" + todo._id, {
+        ...form,
+      })
+      .then((res) => {
+        Toast(`${form.title} updated`, "success");
+        setForm({
+          title: "",
+          description: "",
+          status: "new",
+        });
+        router.replace("/");
+      })
+      .catch((err) => {
+        Toast(`${err.response.data.message}`, "error");
+      });
+  };
+  const changehandler = (e) => {
+    setForm({
+      ...form,
+      [e.target.id]: e.target.value,
+    });
   };
   return (
     <div className={styles.container}>
@@ -55,30 +84,36 @@ function AddTodopage() {
         <label htmlFor="title">Title:</label>
         <input
           id="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={form.title}
+          onChange={(e) => changehandler(e)}
         />
         <label htmlFor="description">Description:</label>
         <input
           id="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          value={form.description}
+          onChange={(e) => changehandler(e)}
         />
-        <RadioButton title="New" status={status} setStatus={setStatus}>
+        <RadioButton title="New" form={form} setForm={setForm}>
           <VscNewFile />
         </RadioButton>
-        <RadioButton title="In Progress" status={status} setStatus={setStatus}>
+        <RadioButton title="In Progress" form={form} setForm={setForm}>
           <VscGear />
         </RadioButton>
-        <RadioButton title="Review" status={status} setStatus={setStatus}>
+        <RadioButton title="Review" form={form} setForm={setForm}>
           <VscOpenPreview />
         </RadioButton>
-        <RadioButton title="Done" status={status} setStatus={setStatus}>
+        <RadioButton title="Done" form={form} setForm={setForm}>
           <VscCheckAll />
         </RadioButton>
-        <button className={styles.button} onClick={submitHandler}>
-          Add Todo
-        </button>
+        {todo ? (
+          <button className={styles.button} onClick={updateHandler}>
+            update Todo
+          </button>
+        ) : (
+          <button className={styles.button} onClick={submitHandler}>
+            Add Todo
+          </button>
+        )}
       </div>
     </div>
   );
