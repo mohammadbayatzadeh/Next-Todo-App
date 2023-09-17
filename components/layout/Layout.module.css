@@ -189,7 +189,7 @@
     display: block;
   }
   .body {
-    min-width: 100vw;
+    min-width: 95vw;
     transform: translateX(-150px);
   }
   .container input[type="checkbox"]:checked ~ .body {

@@ -8,15 +8,21 @@
   background-image: url("../public/images//back-light.jpg");
   background-position: right top;
 }
+#light input {
+  color: #222222;
+}
 :root #dark {
   --bg-color-primary: #1d213c;
-  --bg-color-secondary: #7b8893;
+  --bg-color-secondary: #edf2f6;
   --bg-color-tertiary: #343434db;
   --text-color-primary: #ffffff;
   --text-color-secondary: #ffffff;
   --text-color-tertiary: #ff5656;
   background-image: url("../public/images//back-dark.jpg");
   background-position: right top;
+}
+#dark input {
+  color: #fff;
 }
 
 * {

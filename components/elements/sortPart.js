@@ -3,6 +3,7 @@ import Task from "./Task";
 
 //styles
 import styles from "./sortPart.module.css";
+import { ThreeDots } from "react-loader-spinner";
 
 function SortPart({ title, data, fetchData }) {
   return (
@@ -18,7 +19,9 @@ function SortPart({ title, data, fetchData }) {
             <p>There is no {title} todo</p>
           )
         ) : (
-          <p>loading ...</p>
+          <div className={styles.loading}>
+            <ThreeDots color="#6a7efc" />
+          </div>
         )}
       </div>
     </div>

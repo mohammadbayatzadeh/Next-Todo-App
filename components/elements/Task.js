@@ -44,7 +44,7 @@ function Task({ title, status, description, _id, fetch }) {
   };
 
   const editHandler = async () => {
-    router.push("/edit-todo/" + _id);
+    router.replace("/edit-todo/" + _id);
   };
 
   return (
