@@ -5,7 +5,8 @@
   --text-color-primary: #494953;
   --text-color-secondary: #fff;
   --text-color-tertiary: #ff5656;
-
+  background-image: url("../public/images//back-light.jpg");
+  background-position: right top;
 }
 :root #dark {
   --bg-color-primary: #1d213c;
@@ -14,7 +15,8 @@
   --text-color-primary: #ffffff;
   --text-color-secondary: #ffffff;
   --text-color-tertiary: #ff5656;
-
+  background-image: url("../public/images//back-dark.jpg");
+  background-position: right top;
 }
 
 * {

@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
 
 //styles
-import styles from "./LoginPage.module.css";
+import styles from "./AuthPage.module.css";
 
 //elements
 import Toast from "../elements/Toast";

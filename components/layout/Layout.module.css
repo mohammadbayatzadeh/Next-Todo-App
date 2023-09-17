@@ -13,17 +13,20 @@
   background-color: var(--bg-color-primary);
   padding: 15px;
 }
-.header button {
+.button {
   background: var(--text-color-secondary);
   color: var(--bg-color-primary);
   border: none;
-  margin: 15px 5px ;
+  margin: 15px 5px;
   padding: 9px;
   cursor: pointer;
-  width: 150px;
+  width: 100px;
   font-weight: 600;
   transition: 0.5s all ease;
   border-radius: 10px;
+}
+.button svg {
+  display: none;
 }
 .header a {
   font-size: 1.8em;
@@ -175,6 +178,15 @@
   }
   .container input[type="checkbox"]:checked ~ .hamburger span:last-child {
     opacity: 0;
+  }
+  .button {
+    width: fit-content;
+  }
+  .button p {
+    display: none;
+  }
+  .button svg {
+    display: block;
   }
   .body {
     min-width: 100vw;

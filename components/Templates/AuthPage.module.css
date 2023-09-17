@@ -7,7 +7,7 @@
 }
 .container {
   border: 2px solid var(--bg-color-primary);
-  background-color: var(--bg-color-tertiary);
+  background-color: var(--bg-color-secondary);
   width: 300px;
   display: flex;
   flex-direction: column;

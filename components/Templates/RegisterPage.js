@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { VscMail, VscLock } from "react-icons/vsc";
 
 //styles
-import styles from "./RegisterPage.module.css";
+import styles from "./AuthPage.module.css";
 
 //elements
 import Toast from "../elements/Toast";

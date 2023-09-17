@@ -9,6 +9,8 @@ import "aos/dist/aos.css";
 
 //icons
 import { VscListSelection, VscPerson, VscIndent } from "react-icons/vsc";
+import { GiArchiveRegister } from "react-icons/gi";
+import { IoIosLogIn, IoIosLogOut } from "react-icons/io";
 import { useEffect, useState } from "react";
 import Sun from "../icons/Sun";
 import Moon from "../icons/Moon";
@@ -45,19 +47,32 @@ function Layout({ children }) {
         <link rel="icon" href="/Logo.png" />
       </Head>
       <header className={styles.header}>
-        <Link href="/">Todo App Project</Link>
+        <Link href="/">Todo App</Link>
         <span onClick={themeHandler}>
           {theme === "light" ? <Sun /> : <Moon />}
         </span>
         <div style={{ marginLeft: "auto" }}></div>
         {status === "authenticated" ? (
-          <button onClick={() => signOut()}>Logout</button>
+          <button onClick={() => signOut()} className={styles.button}>
+            <IoIosLogOut />
+            <p>Logout</p>
+          </button>
         ) : (
           <>
-            <button onClick={() => router.replace("/register")}>
-              register
+            <button
+              onClick={() => router.replace("/register")}
+              className={styles.button}
+            >
+              <GiArchiveRegister />
+              <p>register</p>
             </button>
-            <button onClick={() => router.replace("/login")}>login</button>
+            <button
+              onClick={() => router.replace("/login")}
+              className={styles.button}
+            >
+              <IoIosLogIn />
+              <p>login</p>
+            </button>
           </>
         )}
       </header>
