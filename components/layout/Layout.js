@@ -5,17 +5,25 @@ import { useRouter } from "next/router";
 
 //styles
 import styles from "./Layout.module.css";
+import "aos/dist/aos.css";
 
 //icons
 import { VscListSelection, VscPerson, VscIndent } from "react-icons/vsc";
 import { useEffect, useState } from "react";
 import Sun from "../icons/Sun";
 import Moon from "../icons/Moon";
+import AOS from "aos";
 
 function Layout({ children }) {
   const router = useRouter();
   const [theme, setTheme] = useState("light");
   useEffect(() => {
+    AOS.init({
+      offset: 200,
+      duration: 300,
+      easing: "ease-in",
+      delay: 100,
+    });
     const storedTheme = localStorage.getItem("theme") || "light";
     setTheme(storedTheme);
   }, []);
