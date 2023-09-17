@@ -17,14 +17,14 @@ function LandingPage() {
       </div>
       <div className={styles.right}>
         <Image
-          src={require("../../public/images/landing.png")}
+          src="/images/landing.png"
           width={500}
           height={700}
           alt="landingPage"
           className={styles.imgUp}
         />
         <Image
-          src={require("../../public/images/landing-2.png")}
+          src="/images/landing-2.png"
           width={1050}
           height={700}
           alt="landingPage"
