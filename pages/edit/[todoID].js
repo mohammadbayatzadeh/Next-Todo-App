@@ -3,15 +3,13 @@ import User from "@/models/User";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 
-function Edit({ todoID }) {
+function Edit({ todo }) {
   return (
     <>
       <Head>
-        <title>
-          edit todo 
-        </title>
+        <title>{todo.title}</title>
       </Head>
-      <AddTodopage todoID={todoID} />
+      <AddTodopage todo={todo} />
     </>
   );
 }
@@ -29,8 +27,10 @@ export async function getServerSideProps(context) {
       },
     };
   }
+
   const user = await User.findOne({ email: session.user.email });
+  const todo = user.todos.find((t) => t._id == todoID);
   return {
-    props: { todoID },
+    props: { todo: JSON.parse(JSON.stringify(todo)) },
   };
 }

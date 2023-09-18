@@ -53,7 +53,7 @@ function Task({ title, status, description, _id, fetch }) {
         >
           <AiFillCaretDown />
         </span>
-        <Link href={`edit/${_id}`}>
+        <Link href={`/edit/${_id}`}>
           <AiFillEdit />
         </Link>
 
