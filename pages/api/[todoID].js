@@ -30,6 +30,11 @@ export default async function handler(req, res) {
       .json({ status: "failed", message: "the user dows not exist" });
   }
 
+  if (req.method === "GET") {
+    const todo = await user.todos.find((todo) => todo._id == id);
+    res.status(200).json({ data: todo });
+  }
+
   if (req.method === "PATCH") {
     const newTodos = user.todos.map((todo) => {
       if (todo._id == id) {

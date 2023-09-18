@@ -18,7 +18,7 @@ import Toast from "../elements/Toast";
 import styles from "./AddTodoPage.module.css";
 import axios from "axios";
 
-function AddTodopage({ todo }) {
+function AddTodopage({ todoID }) {
   const [form, setForm] = useState({
     title: "",
     description: "",
@@ -28,7 +28,12 @@ function AddTodopage({ todo }) {
   const router = useRouter();
 
   useEffect(() => {
-    todo && setForm({ ...todo });
+    if (todoID) {
+      axios
+        .get("/api/" + todoID)
+        .then((res) => setForm(res.data.data))
+        .catch((err) => Toast("someThing went wrong", "error"));
+    }
   }, []);
 
   const submitHandler = async () => {
@@ -52,7 +57,7 @@ function AddTodopage({ todo }) {
 
   const updateHandler = async () => {
     axios
-      .patch("/api/" + todo._id, {
+      .patch("/api/" + todoID, {
         ...form,
       })
       .then((res) => {
@@ -68,7 +73,7 @@ function AddTodopage({ todo }) {
         Toast(`${err.response.data.message}`, "error");
       });
   };
-  
+
   const changehandler = (e) => {
     setForm({
       ...form,
@@ -107,7 +112,7 @@ function AddTodopage({ todo }) {
         <RadioButton title="Done" form={form} setForm={setForm}>
           <VscCheckAll />
         </RadioButton>
-        {todo ? (
+        {todoID ? (
           <button className={styles.button} onClick={updateHandler}>
             update Todo
           </button>
