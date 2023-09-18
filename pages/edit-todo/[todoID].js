@@ -11,8 +11,7 @@ export default Edit;
 export async function getServerSideProps(context) {
   const { todoID } = context.params;
   const session = await getSession({ req: context.req });
-  const user = await User.findOne({ email: session.user.email });
-
+  
   if (!session) {
     return {
       redirect: {
@@ -20,7 +19,8 @@ export async function getServerSideProps(context) {
       },
     };
   }
-
+  
+  const user = await User.findOne({ email: session.user.email });
   const todo = user.todos.find((t) => t.id === todoID);
 
   return {

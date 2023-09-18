@@ -1,4 +1,5 @@
 import axios from "axios";
+import Link from "next/link";
 import { useState } from "react";
 
 //styles
@@ -10,15 +11,12 @@ import { AiFillEdit, AiOutlineDelete, AiFillCaretDown } from "react-icons/ai";
 
 //comps
 import Toast from "./Toast";
-import { useRouter } from "next/router";
 
 function Task({ title, status, description, _id, fetch }) {
   const [details, setDetails] = useState(false);
   const statuses = ["new", "in progress", "review", "done"];
 
   const index = statuses.findIndex((s) => s === status);
-
-  const router = useRouter();
 
   const handler = async (id, status) => {
     axios
@@ -43,10 +41,6 @@ function Task({ title, status, description, _id, fetch }) {
       });
   };
 
-  const editHandler = async () => {
-    router.replace("/edit-todo/" + _id);
-  };
-
   return (
     <div className={styles.container}>
       <div className={styles.title}>
@@ -58,7 +52,9 @@ function Task({ title, status, description, _id, fetch }) {
         >
           <AiFillCaretDown />
         </span>
-        <AiFillEdit onClick={editHandler} />
+        <Link href={"/edit-todo/" + _id}>
+          <AiFillEdit />
+        </Link>
 
         <AiOutlineDelete onClick={deleteHandler} />
       </div>

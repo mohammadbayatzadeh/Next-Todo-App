@@ -5,7 +5,7 @@
   --text-color-primary: #494953;
   --text-color-secondary: #fff;
   --text-color-tertiary: #ff5656;
-  background-image: url("../public/images//back-light.jpg");
+  background-image: url("../public/images/back-light.jpg");
   background-position: right top;
 }
 #light input {
@@ -18,7 +18,7 @@
   --text-color-primary: #ffffff;
   --text-color-secondary: #ffffff;
   --text-color-tertiary: #ff5656;
-  background-image: url("../public/images//back-dark.jpg");
+  background-image: url("../public/images/back-dark.jpeg");
   background-position: right top;
 }
 #dark input {

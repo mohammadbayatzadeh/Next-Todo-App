@@ -43,7 +43,7 @@
 .menu.active {
   transform: rotate(180deg) translateY(-8px);
 }
-.title svg:nth-child(4) {
+.title svg:nth-child(5) {
   color: var(--text-color-tertiary);
 }
 
