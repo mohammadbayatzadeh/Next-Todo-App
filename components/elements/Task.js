@@ -21,22 +21,23 @@ function Task({ title, status, description, _id, fetch }) {
   const handler = async (id, status) => {
     axios
       .patch("/api/todos", { id, status, title })
-      .then((res) => {
+      .then(() => {
         Toast(`${title} status changed to ${status}`, "success");
         fetch();
       })
-      .catch((err) => {
+      .catch(() => {
         Toast("failed", "error");
       });
   };
+
   const deleteHandler = async () => {
     axios
       .delete("/api/" + _id)
-      .then((res) => {
+      .then(() => {
         Toast(`${title} todo deleted`, "success");
         fetch();
       })
-      .catch((err) => {
+      .catch(() => {
         Toast("failed", "error");
       });
   };
@@ -52,7 +53,7 @@ function Task({ title, status, description, _id, fetch }) {
         >
           <AiFillCaretDown />
         </span>
-        <Link href={"/edit-todo/" + _id}>
+        <Link href={`edit/${_id}`}>
           <AiFillEdit />
         </Link>
 
