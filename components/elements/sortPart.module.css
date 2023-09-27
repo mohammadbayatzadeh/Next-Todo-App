@@ -19,7 +19,6 @@
 }
 .tasks {
   width: 100%;
-
   background-color: var(--text-color-secondary);
   padding: 10px;
   border-bottom-left-radius: 7px;
