@@ -42,8 +42,17 @@ function Task({ title, status, description, _id, fetch }) {
       });
   };
 
+  const drag = (ev) => {
+    ev.dataTransfer.setData("text/html", ev.target.id);
+  };
+
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      draggable={true}
+      onDragStart={drag}
+      id={_id}
+    >
       <div className={styles.title}>
         <div className={styles.titleText}>{title}</div>
         <div className={styles.status}>{status}</div>

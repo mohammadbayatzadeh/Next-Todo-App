@@ -6,8 +6,17 @@ import styles from "./sortPart.module.css";
 import { ThreeDots } from "react-loader-spinner";
 
 function SortPart({ title, data, fetchData }) {
+  const allowDrop = (ev) => {
+    ev.preventDefault();
+  };
+
+  const drop = (ev) => {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text/html");
+    ev.target.appendChild(document.getElementById(data));
+  };
   return (
-    <div className={styles.sortContainer}>
+    <div className={styles.sortContainer} onDrop={drop} onDragOver={allowDrop}>
       <div className={styles.sortTitle}>{title}</div>
       <div className={styles.tasks}>
         {data ? (
