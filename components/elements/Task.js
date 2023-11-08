@@ -20,7 +20,7 @@ function Task({ title, status, description, _id, fetch }) {
 
   const handler = async (id, status) => {
     axios
-      .patch("/api/todos", { id, status, title })
+      .patch("/api/todos", { id, status })
       .then(() => {
         Toast(`${title} status changed to ${status}`, "success");
         fetch();

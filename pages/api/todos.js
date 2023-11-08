@@ -27,6 +27,7 @@ export default async function handler(req, res) {
       .status(404)
       .json({ status: "failed", message: "the user dows not exist" });
   }
+
   if (req.method === "POST") {
     const { title, status, description } = req.body;
 
@@ -46,13 +47,12 @@ export default async function handler(req, res) {
     return res.status(200).json({ status: "success", todos: sortedTodos });
   } else if (req.method === "PATCH") {
     const { id, status } = req.body;
-
     if (!id || !status) {
       return res
         .status(422)
         .json({ status: "failed", message: "invalid data" });
     }
-    const result = await User.updateOne(
+    await User.updateOne(
       { "todos._id": id },
       { $set: { "todos.$.status": status } }
     );
