@@ -14,17 +14,20 @@ function SortPart({ title, data, fetchData }) {
 
   const drop = (ev) => {
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("text/html");
-    axios
-      .patch("/api/todos", { id: data, status: title })
-      .then(() => {
-        Toast(`${title} status changed to ${title}`, "success");
-        fetchData();
-      })
-      .catch((err) => {
-        Toast("failed", "error");
-      });
+    var data = JSON.parse(ev.dataTransfer.getData("text/html"));
+    if (data.status !== title) {
+      axios
+        .patch("/api/todos", { id: data.id, status: title })
+        .then(() => {
+          Toast(`${title} status changed to ${title}`, "success");
+          fetchData();
+        })
+        .catch(() => {
+          Toast("failed", "error");
+        });
+    }
   };
+
   return (
     <div className={styles.sortContainer} onDrop={drop} onDragOver={allowDrop}>
       <div className={styles.sortTitle}>{title}</div>

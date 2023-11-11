@@ -43,7 +43,8 @@ function Task({ title, status, description, _id, fetch }) {
   };
 
   const drag = (ev) => {
-    ev.dataTransfer.setData("text/html", ev.target.id);
+    const data = JSON.stringify({ id: ev.target.id, status });
+    ev.dataTransfer.setData("text/html", data);
   };
 
   return (
