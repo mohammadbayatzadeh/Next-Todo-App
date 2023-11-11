@@ -15,7 +15,6 @@ function SortPart({ title, data, fetchData }) {
   const drop = (ev) => {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text/html");
-    // ev.target.appendChild(document.getElementById(data));
     axios
       .patch("/api/todos", { id: data, status: title })
       .then(() => {
@@ -23,7 +22,6 @@ function SortPart({ title, data, fetchData }) {
         fetchData();
       })
       .catch((err) => {
-        console.log(err.response.data);
         Toast("failed", "error");
       });
   };
