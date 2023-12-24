@@ -50,7 +50,7 @@ function RegisterPage() {
 
         <button onClick={clickHandler}>Register</button>
         <p>
-          have Account ? <Link href="/login">Login</Link>
+          have Account? <Link href="/login">Login</Link>
         </p>
       </div>
     </div>

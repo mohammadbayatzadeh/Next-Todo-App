@@ -61,7 +61,7 @@ function LoginPage() {
 
         <button onClick={clickHandler}>Login</button>
         <p>
-          Dont have Account ? <Link href="register">register</Link>
+          Dont have Account? <Link href="register">register</Link>
         </p>
       </div>
     </div>
