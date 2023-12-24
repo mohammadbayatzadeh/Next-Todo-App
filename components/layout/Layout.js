@@ -1,23 +1,20 @@
+import { useEffect, useState } from "react";
+import { useSession, signOut } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
-import { useSession, signOut } from "next-auth/react";
-import { useRouter } from "next/router";
 
 //styles
 import styles from "./Layout.module.css";
 import "aos/dist/aos.css";
+import AOS from "aos";
 
 //icons
 import { VscListSelection, VscPerson, VscIndent } from "react-icons/vsc";
 import { GiArchiveRegister } from "react-icons/gi";
 import { IoIosLogIn, IoIosLogOut } from "react-icons/io";
-import { useEffect, useState } from "react";
-import Sun from "../icons/Sun";
-import Moon from "../icons/Moon";
-import AOS from "aos";
+import { FaMoon, FaSun } from "react-icons/fa6";
 
 function Layout({ children }) {
-  const router = useRouter();
   const [theme, setTheme] = useState("light");
   useEffect(() => {
     AOS.init({
@@ -49,7 +46,11 @@ function Layout({ children }) {
       <header className={styles.header}>
         <Link href="/">Todo App</Link>
         <span onClick={themeHandler}>
-          {theme === "light" ? <Sun /> : <Moon />}
+          {theme === "light" ? (
+            <FaSun style={{ color: "gold" }} />
+          ) : (
+            <FaMoon style={{ color: "white" }} />
+          )}
         </span>
         <div style={{ marginLeft: "auto" }}></div>
         {status === "authenticated" ? (
