@@ -1,6 +1,9 @@
+import Link from "next/link";
 import { useState } from "react";
-import { VscMail, VscLock } from "react-icons/vsc";
 import { useRouter } from "next/router";
+
+//icons
+import { VscMail, VscLock } from "react-icons/vsc";
 
 //functions
 import { signIn } from "next-auth/react";
@@ -24,7 +27,7 @@ function LoginPage() {
       redirect: false,
     }).then((res) => {
       if (res.ok) {
-        router.replace("/todos");
+        router.push("/todos");
         Toast("logged in", "success");
         return;
       } else {
@@ -58,8 +61,7 @@ function LoginPage() {
 
         <button onClick={clickHandler}>Login</button>
         <p>
-          Dont have Account ?{" "}
-          <span onClick={() => router.replace("/register")}>register</span>
+          Dont have Account ? <Link href="register">register</Link>
         </p>
       </div>
     </div>

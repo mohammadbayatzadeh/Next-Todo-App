@@ -1,5 +1,6 @@
-import axios from "axios";
+import Link from "next/link";
 import { useState } from "react";
+import axios from "axios";
 import { useRouter } from "next/router";
 
 //icons
@@ -20,7 +21,7 @@ function RegisterPage() {
   const clickHandler = async () => {
     axios
       .post("/api/auth/register", { email, password })
-      .then((res) => (router.replace("/login"), Toast("logged in", "success")))
+      .then((res) => (router.push("/login"), Toast("logged in", "success")))
       .catch((err) => Toast(`${err.response.data.message}`, "error"));
   };
 
@@ -49,8 +50,7 @@ function RegisterPage() {
 
         <button onClick={clickHandler}>Register</button>
         <p>
-          have Account ?{" "}
-          <span onClick={() => router.replace("/login")}>Login</span>
+          have Account ? <Link href="/login">Login</Link>
         </p>
       </div>
     </div>
