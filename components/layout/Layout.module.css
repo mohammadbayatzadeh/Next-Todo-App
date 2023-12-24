@@ -15,12 +15,14 @@
 }
 .button {
   background: var(--text-color-secondary);
-  color: var(--bg-color-primary);
+  color: var(--bg-color-primary) !important;
+  font-size: 1em !important;
   border: none;
-  margin: 15px 5px;
+  margin: auto 5px;
   padding: 9px;
+  text-align: center;
   cursor: pointer;
-  width: 100px;
+  /* width: 100px; */
   font-weight: 600;
   transition: 0.5s all ease;
   border-radius: 10px;

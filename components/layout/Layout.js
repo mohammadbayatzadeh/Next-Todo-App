@@ -59,20 +59,14 @@ function Layout({ children }) {
           </button>
         ) : (
           <>
-            <button
-              onClick={() => router.replace("/register")}
-              className={styles.button}
-            >
+            <Link href="/register" className={styles.button}>
               <GiArchiveRegister />
               <p>register</p>
-            </button>
-            <button
-              onClick={() => router.replace("/login")}
-              className={styles.button}
-            >
+            </Link>
+            <Link href="/login" className={styles.button}>
               <IoIosLogIn />
               <p>login</p>
-            </button>
+            </Link>
           </>
         )}
       </header>
