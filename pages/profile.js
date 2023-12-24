@@ -2,7 +2,7 @@ import { getSession } from "next-auth/react";
 import Head from "next/head";
 
 //temps
-import ProfilePage from "@/components/Templates/ProfilePage";
+import ProfilePage from "@/components/Templates/dashboard/ProfilePage";
 
 function Profile() {
   return (

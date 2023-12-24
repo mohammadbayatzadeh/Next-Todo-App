@@ -1,33 +1,42 @@
-import axios from "axios";
 import { useState } from "react";
+import { VscMail, VscLock } from "react-icons/vsc";
 import { useRouter } from "next/router";
 
-//icons
-import { VscMail, VscLock } from "react-icons/vsc";
+//functions
+import { signIn } from "next-auth/react";
 
 //styles
 import styles from "./AuthPage.module.css";
 
 //elements
-import Toast from "../elements/Toast";
+import Toast from "../../elements/Toast";
 
-function RegisterPage() {
+function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const router = useRouter();
 
   const clickHandler = async () => {
-    axios
-      .post("/api/auth/register", { email, password })
-      .then((res) => (router.replace("/login"), Toast("logged in", "success")))
-      .catch((err) => Toast(`${err.response.data.message}`, "error"));
+    await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    }).then((res) => {
+      if (res.ok) {
+        router.replace("/todos");
+        Toast("logged in", "success");
+        return;
+      } else {
+        Toast(`${res.error}`, "error");
+      }
+    });
   };
 
   return (
     <div className={styles.body}>
       <div className={styles.container}>
-        <h3>Register Form</h3>
+        <h3>Login Form</h3>
         <div className={styles.input}>
           <VscMail />
           <input
@@ -47,14 +56,14 @@ function RegisterPage() {
           />
         </div>
 
-        <button onClick={clickHandler}>Register</button>
+        <button onClick={clickHandler}>Login</button>
         <p>
-          have Account ?{" "}
-          <span onClick={() => router.replace("/login")}>Login</span>
+          Dont have Account ?{" "}
+          <span onClick={() => router.replace("/register")}>register</span>
         </p>
       </div>
     </div>
   );
 }
 
-export default RegisterPage;
+export default LoginPage;

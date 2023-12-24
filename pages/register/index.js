@@ -2,20 +2,20 @@ import { getSession } from "next-auth/react";
 import Head from "next/head";
 
 //temps
-import LoginPage from "@/components/Templates/LoginPage";
+import RegisterPage from "@/components/Templates/auth/RegisterPage";
 
-function Login() {
+function Register() {
   return (
     <>
       <Head>
-        <title>Login</title>
+        <title>Register</title>
       </Head>
-      <LoginPage />
+      <RegisterPage />
     </>
   );
 }
 
-export default Login;
+export default Register;
 
 export async function getServerSideProps({ req }) {
   const session = await getSession({ req });

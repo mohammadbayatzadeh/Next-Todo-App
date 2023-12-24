@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 //elements
-import Toast from "../elements/Toast";
+import Toast from "../../elements/Toast";
 
 //styles
 import styles from "./ProfilePage.module.css";

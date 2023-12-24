@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 //functions
-import SortPart from "../elements/sortPart";
+import SortPart from "../../elements/sortPart";
 
 //styles
 import styles from "./HomePage.module.css";
