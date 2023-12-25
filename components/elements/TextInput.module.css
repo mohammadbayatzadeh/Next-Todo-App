@@ -1,0 +1,18 @@
+.input {
+  display: flex;
+  padding: 5px;
+  margin: 10px 0;
+  border-bottom: 2px solid var(--bg-color-primary);
+  transition: 0.5s all ease;
+}
+.input:hover {
+  border-bottom: 2px solid var(--text-color-tertiary);
+}
+.input input {
+  margin-left: 5px;
+  display: flex;
+  background: none;
+  color: var(--bg-color-primary) !important;
+  border: none;
+  outline: none;
+}
