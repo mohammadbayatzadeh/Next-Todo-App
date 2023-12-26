@@ -1,58 +1,46 @@
+import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
-import axios from "axios";
 import { useRouter } from "next/router";
-
-//icons
-import { VscMail, VscLock } from "react-icons/vsc";
 
 //styles
 import styles from "./AuthPage.module.css";
 
 //elements
 import Toast from "../../elements/Toast";
+import TextInput from "@/components/elements/TextInput";
 
 function RegisterPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
   const router = useRouter();
 
-  const clickHandler = async () => {
+  const submitHandler = async (e) => {
+    e.preventDefault();
     axios
-      .post("/api/auth/register", { email, password })
-      .then((res) => (router.push("/login"), Toast("logged in", "success")))
+      .post("/api/auth/register", form)
+      .then(
+        () => (
+          router.push("/login"),
+          Toast("you registered successfully , please log in.", "success")
+        )
+      )
       .catch((err) => Toast(`${err.response.data.message}`, "error"));
   };
 
   return (
     <div className={styles.body}>
-      <div className={styles.container}>
+      <form className={styles.container} onSubmit={submitHandler}>
         <h3>Register Form</h3>
-        <div className={styles.input}>
-          <VscMail />
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            type="text"
-          />
-        </div>
-        <div className={styles.input}>
-          <VscLock />
-          <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-            type="password"
-          />
-        </div>
-
-        <button onClick={clickHandler}>Register</button>
+        <TextInput name="email" form={form} setForm={setForm} />
+        <TextInput name="password" form={form} setForm={setForm} />
+        <button type="submit">Register</button>
         <p>
           have Account? <Link href="/login">Login</Link>
         </p>
-      </div>
+      </form>
     </div>
   );
 }
