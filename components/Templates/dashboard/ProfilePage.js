@@ -31,7 +31,8 @@ function ProfilePage() {
       .catch((err) => {});
   }, []);
 
-  const submitHandler = async () => {
+  const submitHandler = async (e) => {
+    e.preventDefault();
     axios
       .post("/api/profile", form)
       .then(() => {
@@ -49,7 +50,7 @@ function ProfilePage() {
         <VscAccount />
         update profile
       </h3>
-      <div className={styles.form}>
+      <form className={styles.form} onSubmit={submitHandler}>
         <TextInput
           form={form}
           setForm={setForm}
@@ -69,10 +70,10 @@ function ProfilePage() {
           type="dashboard"
         />
 
-        <button className={styles.button} onClick={submitHandler}>
+        <button className={styles.button} type="submit">
           Update
         </button>
-      </div>
+      </form>
     </div>
   );
 }
