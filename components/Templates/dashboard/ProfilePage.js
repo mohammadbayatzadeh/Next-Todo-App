@@ -10,11 +10,17 @@ import styles from "./ProfilePage.module.css";
 
 //icons
 import { VscAccount } from "react-icons/vsc";
+import TextInput from "@/components/elements/TextInput";
 
 function ProfilePage() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    password: "",
+  });
 
   const router = useRouter();
 
@@ -58,6 +64,12 @@ function ProfilePage() {
         update profile
       </h3>
       <div className={styles.form}>
+        <TextInput
+          form={form}
+          setForm={setForm}
+          name="firstName"
+          type="dashboard"
+        />
         <label htmlFor="firstName">First Name:</label>
         <input
           id="firstName"
