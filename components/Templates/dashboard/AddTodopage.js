@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
@@ -12,11 +13,11 @@ import {
 
 //elemets
 import RadioButton from "../../elements/RadioButton";
+import TextInput from "@/components/elements/TextInput";
 import Toast from "../../elements/Toast";
 
 //styles
 import styles from "./AddTodoPage.module.css";
-import axios from "axios";
 
 function AddTodopage({ todo }) {
   const [form, setForm] = useState({
@@ -31,49 +32,41 @@ function AddTodopage({ todo }) {
     todo && setForm(todo);
   }, []);
 
-  const submitHandler = async () => {
-    axios
-      .post("/api/todos", {
-        ...form,
-      })
-      .then(() => {
-        Toast(`${form.title} added`, "success");
-        setForm({
-          title: "",
-          description: "",
-          status: "new",
-        });
-        router.replace("/");
-      })
-      .catch((err) => {
-        Toast(`${err.response.data.message}`, "error");
-      });
-  };
-
-  const updateHandler = async () => {
-    axios
-      .patch("/api/" + todo._id, {
-        ...form,
-      })
-      .then((res) => {
-        Toast(`${form.title} updated`, "success");
-        setForm({
-          title: "",
-          description: "",
-          status: "new",
-        });
-        router.replace("/");
-      })
-      .catch((err) => {
-        Toast(`${err.response.data.message}`, "error");
-      });
-  };
-
-  const changehandler = (e) => {
-    setForm({
-      ...form,
-      [e.target.id]: e.target.value,
-    });
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    !todo
+      ? axios
+          .post("/api/todos", {
+            ...form,
+          })
+          .then(() => {
+            Toast(`${form.title} added`, "success");
+            setForm({
+              title: "",
+              description: "",
+              status: "new",
+            });
+            router.replace("/");
+          })
+          .catch((err) => {
+            Toast(`${err.response.data.message}`, "error");
+          })
+      : axios
+          .patch("/api/" + todo._id, {
+            ...form,
+          })
+          .then((res) => {
+            Toast(`${form.title} updated`, "success");
+            setForm({
+              title: "",
+              description: "",
+              status: "new",
+            });
+            router.replace("/");
+          })
+          .catch((err) => {
+            Toast(`${err.response.data.message}`, "error");
+          });
   };
 
   return (
@@ -82,18 +75,18 @@ function AddTodopage({ todo }) {
         <VscAdd />
         Add Todo
       </h3>
-      <div className={styles.form}>
-        <label htmlFor="title">Title:</label>
-        <input
-          id="title"
-          value={form.title}
-          onChange={(e) => changehandler(e)}
+      <form className={styles.form} onSubmit={submitHandler}>
+        <TextInput
+          name="title"
+          form={form}
+          setForm={setForm}
+          type="dashboard"
         />
-        <label htmlFor="description">Description:</label>
-        <input
-          id="description"
-          value={form.description}
-          onChange={(e) => changehandler(e)}
+        <TextInput
+          name="description"
+          form={form}
+          setForm={setForm}
+          type="dashboard"
         />
         <RadioButton title="New" form={form} setForm={setForm}>
           <VscNewFile />
@@ -107,16 +100,10 @@ function AddTodopage({ todo }) {
         <RadioButton title="Done" form={form} setForm={setForm}>
           <VscCheckAll />
         </RadioButton>
-        {todo ? (
-          <button className={styles.button} onClick={updateHandler}>
-            update Todo
-          </button>
-        ) : (
-          <button className={styles.button} onClick={submitHandler}>
-            Add Todo
-          </button>
-        )}
-      </div>
+        <button className={styles.button} type="submit">
+          {todo ? "update" : "add"} Todo
+        </button>
+      </form>
     </div>
   );
 }
