@@ -4,18 +4,15 @@ import { useRouter } from "next/router";
 
 //elements
 import Toast from "../../elements/Toast";
+import TextInput from "@/components/elements/TextInput";
 
 //styles
 import styles from "./ProfilePage.module.css";
 
 //icons
 import { VscAccount } from "react-icons/vsc";
-import TextInput from "@/components/elements/TextInput";
 
 function ProfilePage() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [password, setPassword] = useState("");
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -25,32 +22,21 @@ function ProfilePage() {
   const router = useRouter();
 
   useEffect(() => {
-    setFirstName("");
-    setLastName("");
-    setPassword("");
-
     axios
       .get("/api/profile")
       .then((res) => {
         const { firstName, lastName } = res.data.data;
-        setFirstName(firstName);
-        setLastName(lastName);
+        setForm({ firstName, lastName, password: "" });
       })
       .catch((err) => {});
   }, []);
 
   const submitHandler = async () => {
     axios
-      .post("/api/profile", {
-        firstName,
-        lastName,
-        password,
-      })
-      .then((res) => {
+      .post("/api/profile", form)
+      .then(() => {
         Toast("info updated", "success");
-        setFirstName("");
-        setLastName("");
-        setPassword("");
+        setForm({ firstName: "", lastName: "", password: "" });
         router.replace("/");
       })
       .catch((err) => {
@@ -70,26 +56,17 @@ function ProfilePage() {
           name="firstName"
           type="dashboard"
         />
-        <label htmlFor="firstName">First Name:</label>
-        <input
-          id="firstName"
-          type="text"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
+        <TextInput
+          form={form}
+          setForm={setForm}
+          name="lastName"
+          type="dashboard"
         />
-        <label htmlFor="lastName">lastName:</label>
-        <input
-          id="lastName"
-          type="text"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-        <label htmlFor="password">password:</label>
-        <input
-          id="password"
-          value={password}
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
+        <TextInput
+          form={form}
+          setForm={setForm}
+          name="password"
+          type="dashboard"
         />
 
         <button className={styles.button} onClick={submitHandler}>

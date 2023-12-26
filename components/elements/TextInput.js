@@ -6,7 +6,7 @@ import styles from "./TextInput.module.css";
 //icons
 import { VscMail, VscLock } from "react-icons/vsc";
 
-function TextInput({ form, name, setForm }) {
+function TextInput({ form, name, setForm, type = "auth" }) {
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -16,12 +16,13 @@ function TextInput({ form, name, setForm }) {
     password: <VscLock />,
   };
   return (
-    <div className={styles.input}>
-      {iconSelect[name]}
+    <div className={type === "auth" ? styles.authInput : styles.dashboardInput}>
+      {type === "auth" && iconSelect[name]}
+      {type === "dashboard" && <label>{name}:</label>}
       <input
         value={form[name]}
         onChange={changeHandler}
-        placeholder={name}
+        placeholder={type === "auth" && name}
         type={name}
         name={name}
       />
