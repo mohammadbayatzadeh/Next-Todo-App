@@ -20,7 +20,8 @@ function LoginPage() {
 
   const router = useRouter();
 
-  const clickHandler = async () => {
+  const submitHandler = async (e) => {
+    e.preventDefault();
     await signIn("credentials", {
       ...form,
       redirect: false,
@@ -37,15 +38,15 @@ function LoginPage() {
 
   return (
     <div className={styles.body}>
-      <div className={styles.container}>
+      <form className={styles.container} onSubmit={submitHandler}>
         <h3>Login Form</h3>
         <TextInput form={form} name="email" setForm={setForm} />
         <TextInput form={form} name="password" setForm={setForm} />
-        <button onClick={clickHandler}>Login</button>
+        <button type="submit">Login</button>
         <p>
           Dont have Account? <Link href="register">register</Link>
         </p>
-      </div>
+      </form>
     </div>
   );
 }
