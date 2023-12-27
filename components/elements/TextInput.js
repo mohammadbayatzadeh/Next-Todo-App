@@ -22,7 +22,7 @@ function TextInput({ form, name, setForm, type = "auth" }) {
       <input
         value={form[name]}
         onChange={changeHandler}
-        placeholder={type === "auth" && name}
+        placeholder={type === "auth" ? name : null}
         type={name}
         name={name}
       />
