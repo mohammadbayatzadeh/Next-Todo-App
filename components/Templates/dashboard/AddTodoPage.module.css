@@ -1,7 +1,6 @@
 .container {
   color: var(--text-color-primary);
 }
-
 .container h3 {
   display: flex;
   align-items: center;
@@ -9,25 +8,6 @@
 }
 .form {
   margin: 10px;
-}
-.form input {
-  padding: 5px;
-  width: 20%;
-  min-width: 200px;
-  background: none;
-  border: none;
-  border-bottom: 2px solid var(--bg-color-primary);
-  border-left: 2px solid var(--bg-color-primary);
-  border-bottom-left-radius: 10px;
-  outline: none;
-  margin-top: 5px;
-}
-.form input[id="description"] {
-  width: 50%;
-  min-width: 3 00px;
-}
-.container input {
-  display: flex;
 }
 
 .form button {

@@ -11,21 +11,6 @@
 .form {
   margin: 10px;
 }
-.form input {
-  padding: 5px;
-  min-width: 250px;
-  background: none;
-  border: none;
-  border-bottom: 2px solid var(--bg-color-primary);
-  border-left: 2px solid var(--bg-color-primary);
-  border-bottom-left-radius: 10px;
-  outline: none;
-  margin-top: 5px;
-}
-
-.container input {
-  display: flex;
-}
 
 .form button {
   background: var(--bg-color-primary);
