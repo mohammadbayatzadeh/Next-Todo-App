@@ -1,11 +1,12 @@
-//comps
 import axios from "axios";
+import { ThreeDots } from "react-loader-spinner";
+
+//elements
+import Toast from "./Toast";
 import Task from "./Task";
 
 //styles
 import styles from "./sortPart.module.css";
-import { ThreeDots } from "react-loader-spinner";
-import Toast from "./Toast";
 
 function SortPart({ title, data, fetchData }) {
   const allowDrop = (ev) => {
