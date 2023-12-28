@@ -10,9 +10,10 @@
 }
 .authInput input {
   margin-left: 5px;
+  letter-spacing: 1px;
   display: flex;
   background: none;
-  color: var(--bg-color-primary) !important;
+  color: black !important;
   border: none;
   outline: none;
 }
