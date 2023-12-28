@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { useSession, signOut } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useSession, signOut } from "next-auth/react";
 
 //styles
 import styles from "./Layout.module.css";

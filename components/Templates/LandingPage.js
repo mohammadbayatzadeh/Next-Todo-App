@@ -1,4 +1,6 @@
 import Image from "next/image";
+
+//styles
 import styles from "./LandingPage.module.css";
 
 function LandingPage() {

@@ -9,7 +9,7 @@ import styles from "./Task.module.css";
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
 import { AiFillEdit, AiOutlineDelete, AiFillCaretDown } from "react-icons/ai";
 
-//comps
+//elemnts
 import Toast from "./Toast";
 
 function Task({ title, status, description, _id, fetch }) {
