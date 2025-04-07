@@ -1,16 +1,10 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-
-//elements
-import Toast from "../../elements/Toast";
 import TextInput from "@/components/elements/TextInput";
-
-//styles
-import styles from "./ProfilePage.module.css";
-
-//icons
+import axios from "axios";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { VscAccount } from "react-icons/vsc";
+import Toast from "../../elements/Toast";
+import styles from "./ProfilePage.module.css";
 
 function ProfilePage() {
   const [form, setForm] = useState({

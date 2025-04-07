@@ -1,10 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-
-//functions
 import SortPart from "../../elements/sortPart";
-
-//styles
 import styles from "./HomePage.module.css";
 
 function HomePage() {

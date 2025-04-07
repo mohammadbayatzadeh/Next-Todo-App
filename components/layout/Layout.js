@@ -1,18 +1,14 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useSession, signOut } from "next-auth/react";
-
-//styles
-import styles from "./Layout.module.css";
-import "aos/dist/aos.css";
-import AOS from "aos";
-
-//icons
-import { VscListSelection, VscPerson, VscIndent } from "react-icons/vsc";
+import { FaMoon, FaSun } from "react-icons/fa6";
 import { GiArchiveRegister } from "react-icons/gi";
 import { IoIosLogIn, IoIosLogOut } from "react-icons/io";
-import { FaMoon, FaSun } from "react-icons/fa6";
+import { VscIndent, VscListSelection, VscPerson } from "react-icons/vsc";
+import styles from "./Layout.module.css";
 
 function Layout({ children }) {
   const [theme, setTheme] = useState("light");

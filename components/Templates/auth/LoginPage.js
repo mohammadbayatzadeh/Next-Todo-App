@@ -1,16 +1,10 @@
-import Link from "next/link";
-import { useState } from "react";
-import { useRouter } from "next/router";
-
-//functions
-import { signIn } from "next-auth/react";
-
-//styles
-import styles from "./AuthPage.module.css";
-
-//elements
-import Toast from "../../elements/Toast";
 import TextInput from "@/components/elements/TextInput";
+import { signIn } from "next-auth/react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import Toast from "../../elements/Toast";
+import styles from "./AuthPage.module.css";
 
 function LoginPage() {
   const [form, setForm] = useState({

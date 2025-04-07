@@ -48,5 +48,4 @@ export default async function handler(req, res) {
     await user.save();
     res.status(200).json({ message: "todo deleted" });
   }
-  
 }

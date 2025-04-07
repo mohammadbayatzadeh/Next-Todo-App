@@ -1,22 +1,16 @@
+import TextInput from "@/components/elements/TextInput";
 import axios from "axios";
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-
-//icons
+import { useEffect, useState } from "react";
 import {
   VscAdd,
   VscCheckAll,
   VscGear,
-  VscOpenPreview,
   VscNewFile,
+  VscOpenPreview,
 } from "react-icons/vsc";
-
-//elemets
 import RadioButton from "../../elements/RadioButton";
-import TextInput from "@/components/elements/TextInput";
 import Toast from "../../elements/Toast";
-
-//styles
 import styles from "./AddTodoPage.module.css";
 
 function AddTodopage({ todo }) {

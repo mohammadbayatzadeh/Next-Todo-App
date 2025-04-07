@@ -1,7 +1,5 @@
 import { getSession } from "next-auth/react";
 import Head from "next/head";
-
-//temps
 import RegisterPage from "@/components/Templates/auth/RegisterPage";
 
 function Register() {

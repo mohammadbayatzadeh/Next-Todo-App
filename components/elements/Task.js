@@ -1,15 +1,9 @@
 import axios from "axios";
 import Link from "next/link";
 import { useRef, useState } from "react";
-
-//styles
-import styles from "./Task.module.css";
-
-//icons
+import { AiFillCaretDown, AiFillEdit, AiOutlineDelete } from "react-icons/ai";
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
-import { AiFillEdit, AiOutlineDelete, AiFillCaretDown } from "react-icons/ai";
-
-//elemnts
+import styles from "./Task.module.css";
 import Toast from "./Toast";
 
 function Task({ title, status, description, _id, fetch }) {

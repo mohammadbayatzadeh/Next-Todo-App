@@ -1,11 +1,7 @@
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
-
-//elements
-import Toast from "./Toast";
 import Task from "./Task";
-
-//styles
+import Toast from "./Toast";
 import styles from "./sortPart.module.css";
 
 function SortPart({ title, data, fetchData }) {

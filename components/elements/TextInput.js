@@ -1,10 +1,5 @@
-import React from "react";
-
-//styles
+import { VscLock, VscMail } from "react-icons/vsc";
 import styles from "./TextInput.module.css";
-
-//icons
-import { VscMail, VscLock } from "react-icons/vsc";
 
 function TextInput({ form, name, setForm, type = "auth" }) {
   const changeHandler = (e) => {
