@@ -1,5 +1,4 @@
 import axios from "axios";
-import { ThreeDots } from "react-loader-spinner";
 import Task from "./Task";
 import Toast from "./Toast";
 import styles from "./sortPart.module.css";
@@ -20,7 +19,7 @@ function SortPart({ title, data, fetchData }) {
           fetchData();
         })
         .catch(() => {
-          Toast("failed", "error");
+          Toast("failed", "something went wrong!!!");
         });
     }
   };
@@ -38,9 +37,7 @@ function SortPart({ title, data, fetchData }) {
             <p>There is no {title} todo</p>
           )
         ) : (
-          <div className={styles.loading}>
-            <ThreeDots color="#6a7efc" />
-          </div>
+          <div className={styles.loading}>Loading</div>
         )}
       </div>
     </div>
